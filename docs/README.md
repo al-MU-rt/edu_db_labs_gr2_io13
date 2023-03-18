@@ -9,8 +9,33 @@ footer: "ECL 2.0 Licensed | Copyright © [YYYY] [Your Name]"
 
 **Виконав(-ла):** 
 
-*студент(-ка) 2-го курсу, групи (шифр групи)*<span padding-right:5em></span> **[ім’я ПРІЗВИЩЕ] [Посилання email, tg, fb]**
+*студент(-ка) 2-го курсу, групи (ІО-13)*
 
+<span padding-right:5em></span> **Антон Груша** <a href="https://t.me/Amigo025" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Любомир Ясінський** <a href="https://t.me/Lubosssh" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Денис Мальований** <a href="https://t.me/diniskaya" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Андрій Ступак** <a href="https://t.me/etonepomojet" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Давід Долженков** <a href="https://t.me/notextme" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Денис Куцепал** <a href="https://t.me/floppy0y0" target="_blank"> Telegram </a>
+
+*студент(-ка) 2-го курсу, групи (ІО-13)*
+
+<span padding-right:5em></span> **Сахіл Гаджигасанлі** <a href="https://t.me/fpv12" target="_blank"> Telegram </a>
 
 **Керівник**
 

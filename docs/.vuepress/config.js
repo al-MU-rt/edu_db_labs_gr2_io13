@@ -15,7 +15,9 @@ module.exports = {
     }]
   ],
   port: 3030,
-  base: '/edu_db_labs/',
+
+
+  base: '/edu_db_labs_gr2_io13/',
   theme: 'cool',
   // dest: 'dist',
   head: [
@@ -76,7 +78,7 @@ module.exports = {
 
     lastUpdated: 'Останнє оновлення', // string | boolean
       // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'https://github.com/edu-db/edu_db_labs',
+    repo: 'https://github.com/al-MU-rt/edu_db_labs_gr2_io13',
     // Customising the header label
     // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
     repoLabel: 'Github',
@@ -95,7 +97,7 @@ module.exports = {
     // editLinkText: 'Ви можете покращити цю сторінку'
 
   },
-  title: 'Назва проєкту',
+  title: 'Система аналізу медіа-контенту',
   description: 'Лабораторні роботи з дисципліни "Організація баз даних"',
   configureWebpack: {
     resolve: {
