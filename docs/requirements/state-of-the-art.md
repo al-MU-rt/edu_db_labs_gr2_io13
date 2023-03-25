@@ -33,7 +33,7 @@
 
 **Семіотичний аналіз** - це метод, який вивчає як знаки і символи використовуються для передачі значення у медіа контенті. Семіотичний аналіз може використовуватися для розуміння того, як конкретний медіа-вміст сприймається та інтерпретується різними аудиторіями.
 
-**Культурний аналіз** - це метод, який вивчає як медіа-вміст формує і відображає культурні цінності та вірування. Культурний аналіз може допомогти вивчити, як медіа-контент відображає індивідуальні та колективні ідеї, які зв'язані з соціальними, культурними, політичними і економічними чинниками.
+**Структурний аналіз** - Хоча світ уже давно перейшов до постструктуралізму, методи, що були вироблені саме структуралізмом, продовжують використовуватися, особливо при аналізі конкретного матеріалу. Структуралізм був і філософською течією, під дахом якої йшли роботи у багатьох ділянках гуманітарного знання. Але зараз нас буде цікавити лише один такий ланцюжок, який навіть має вихід і в дослідження історії. Це формальний аналіз літературних текстів. Він почався ще з дореволюційних праць О.М.Веселовського, продовжився в Товаристві з вивчення поетичної мови (В.Б.Шкловський, Л.П.Якубінський та інші) і в результаті оформився У праці Володимира Проппа "Морфологія казки". Цікаво, що ця не дуже велика за обсягом праця 1928 р. вже у наш час була перекладена.
 
 
 ## Порівняльна характеристика існуючих засобів вирішення завдання
@@ -57,4 +57,40 @@
 
 ## Посилання
 
-*[Розділ містить повний список всіх документів, про які згадується.]*
+*<a href="https://uk.wikipedia.org/wiki/Системний_аналіз" target="_blank"> Системний аналіз </a>*
+
+*<a href="https://bloggingtips.com/media-content/" target="_blank"> Медіа контент </a>*
+
+*<a href="https://www.endvawnow.org/en/articles/1330-media-monitoring.html" target="_blank"> Медіа моніторинг </a>*
+
+*<a href="https://en.wikipedia.org/wiki/Mass_media" target="_blank"> ЗМІ </a>*
+
+*<a href="https://www.scribbr.com/methodology/content-analysis/" target="_blank"> Контент-аналіз </a>*
+
+*<a href="https://www.restore.ac.uk/lboro/research/methods/index.php" target="_blank"> Content analysis </a>*
+
+*<a href="https://www.restore.ac.uk/lboro/research/methods/index.php" target="_blank"> Оціночний аналіз тверджень </a>*
+
+*<a href="https://www.restore.ac.uk/lboro/research/methods/index.php" target="_blank"> Аналіз фреймів </a>*
+
+*<a href="https://www.restore.ac.uk/lboro/research/methods/index.php" target="_blank"> Аналіз дискурсу </a>*
+
+*<a href="https://studfile.net/preview/5484810/page:7/" target="_blank"> Семіотичний аналіз </a>*
+
+*<a href="https://studfile.net/preview/5484810/page:9/#20" target="_blank"> Структурний аналіз </a>*
+
+*<a href="https://www.meltwater.com/en" target="_blank"> Meltwater </a>*
+
+*<a href="https://brand24.com/?adgr=txt-brand-ii&keyword-ext=brand24&placement&location=1030363&gclid=EAIaIQobChMI5qa1ofPl_QIVxEaRBR0oeABPEAAYASAAEgIyVfD_BwE" target="_blank"> Brand24 </a>*
+
+*<a href="https://analytics.google.com/analytics/web/provision/#/provision" target="_blank"> Google Analytics </a>*
+
+*<a href="https://brandmentions.com/hub/buzzsumo?utm_source=google&utm_medium=cpc&utm_campaign=19636476697&utm_id=19636476697&utm_target_id=kwd-101016070126&gclid=EAIaIQobChMIrtq22fbl_QIVlulRCh1iPAqEEAAYASAAEgK0OPD_BwE" target="_blank"> BuzzSumo </a>*
+
+*<a href="https://www.semrush.com/lp/sem-aeoy/en/?kw=semrush&cmp=WW_SRCH_Brand_Semrush_EN&label=brand_semrush&Network=g&Device=c&utm_content=561925096250&kwid=kwd-12358836513&cmpid=14296670301&agpid=128810136151&BU=Bra" target="_blank"> SEMrush </a>*
+
+*<a href="https://mention.com/en/" target="_blank"> Mention </a>*
+
+*<a href="https://www.talkwalker.com" target="_blank"> Talkwalker </a>*
+
+*<a href="https://www.digimind.com" target="_blank"> Digimind </a>*
