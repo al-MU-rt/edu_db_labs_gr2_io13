@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Реалізація інформаційного та програмного забезпечення | Система аналізу медіа-контенту</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/edu_db_labs_gr2_io13/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Лабораторні роботи з дисципліни &quot;Організація баз даних&quot;">
+    
+    <link rel="preload" href="/edu_db_labs_gr2_io13/assets/css/0.styles.d9ac95ea.css" as="style"><link rel="preload" href="/edu_db_labs_gr2_io13/assets/js/app.4dd42823.js" as="script"><link rel="preload" href="/edu_db_labs_gr2_io13/assets/js/2.23306c76.js" as="script"><link rel="preload" href="/edu_db_labs_gr2_io13/assets/js/23.8ffd82a9.js" as="script"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/10.4f9dcece.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/11.3ef95339.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/12.7af6f1fb.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/13.6ac848d7.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/14.1ef9e106.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/15.65813135.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/16.f7b85732.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/17.21024541.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/18.fd73c38b.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/19.5d1f731b.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/20.5a9f28a4.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/21.fcd1aa7b.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/22.415230ac.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/24.61b135f8.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/25.b62588b8.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/26.6d52418c.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/3.0380b65e.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/4.88f26a93.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/5.0f3b268c.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/6.e0ea0291.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/7.8eeaac71.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/8.b72590dd.js"><link rel="prefetch" href="/edu_db_labs_gr2_io13/assets/js/9.06a604d1.js">
+    <link rel="stylesheet" href="/edu_db_labs_gr2_io13/assets/css/0.styles.d9ac95ea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/edu_db_labs_gr2_io13/" class="home-link router-link-active"><!----> <span class="site-name">Система аналізу медіа-контенту</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/edu_db_labs_gr2_io13/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/al-MU-rt/edu_db_labs_gr2_io13" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/edu_db_labs_gr2_io13/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/al-MU-rt/edu_db_labs_gr2_io13" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/edu_db_labs_gr2_io13/intro/" class="sidebar-link">Вступ</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/edu_db_labs_gr2_io13/requirements/" class="sidebar-heading clickable"><span>Розроблення загальних вимог до системи</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/edu_db_labs_gr2_io13/use%20cases/" class="sidebar-link">Розроблення вимог до функціональности системи</a></li><li><a href="/edu_db_labs_gr2_io13/design/" class="sidebar-link">Проектування інформаційного забезпечення</a></li><li><a href="/edu_db_labs_gr2_io13/software/" aria-current="page" class="active sidebar-link">Реалізація інформаційного та програмного забезпечення</a></li><li><a href="/edu_db_labs_gr2_io13/test/" class="sidebar-link">Тестування працездатності системи</a></li><li><a href="/edu_db_labs_gr2_io13/conclusion/" class="sidebar-link">Висновки</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="реалізація-інформаціиного-та-програмного-забезпечення"><a href="#реалізація-інформаціиного-та-програмного-забезпечення" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <p>В рамках проекту розробляється:</p> <ul><li>SQL-скрипт для створення на початкового наповнення бази даних</li></ul> <div class="language-SQL extra-class"><pre class="language-sql"><code><span class="token comment">-- MySQL Workbench Forward Engineering</span>
+
+<span class="token keyword">SET</span> <span class="token variable">@OLD_UNIQUE_CHECKS</span><span class="token operator">=</span>@<span class="token variable">@UNIQUE_CHECKS</span><span class="token punctuation">,</span> UNIQUE_CHECKS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> <span class="token variable">@OLD_FOREIGN_KEY_CHECKS</span><span class="token operator">=</span>@<span class="token variable">@FOREIGN_KEY_CHECKS</span><span class="token punctuation">,</span> FOREIGN_KEY_CHECKS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> <span class="token variable">@OLD_SQL_MODE</span><span class="token operator">=</span>@<span class="token variable">@SQL_MODE</span><span class="token punctuation">,</span> SQL_MODE<span class="token operator">=</span><span class="token string">'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Schema mydb</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Schema mydb</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">SCHEMA</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token punctuation">;</span>
+<span class="token keyword">USE</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span> <span class="token punctuation">;</span>
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`user`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>login<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>password<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>email<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>rights<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`Filter`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Filter<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>add_source<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>del_source<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`Request`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Request<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>discription<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>date<span class="token punctuation">`</span></span> <span class="token keyword">DATETIME</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>Filter_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">INDEX</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Request_Filter1_idx<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Filter_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">)</span> VISIBLE<span class="token punctuation">,</span>
+  <span class="token keyword">CONSTRAINT</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Request_Filter1<span class="token punctuation">`</span></span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Filter_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Filter<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span>
+    <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`Access`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Access<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>rights<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">INDEX</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Access_Request1_idx<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">)</span> VISIBLE<span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">INDEX</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Access_user1_idx<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">)</span> VISIBLE<span class="token punctuation">,</span>
+  <span class="token keyword">CONSTRAINT</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Access_Request1<span class="token punctuation">`</span></span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Request<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span>
+    <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span><span class="token punctuation">,</span>
+  <span class="token keyword">CONSTRAINT</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Access_user1<span class="token punctuation">`</span></span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>user<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span>
+    <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`Result`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Result<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>description<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">INDEX</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Result_Request1_idx<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">)</span> VISIBLE<span class="token punctuation">,</span>
+  <span class="token keyword">CONSTRAINT</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Result_Request1<span class="token punctuation">`</span></span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Request<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span>
+    <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token comment">-- Table `mydb`.`Source`</span>
+<span class="token comment">-- -----------------------------------------------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Source<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>ban<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>update<span class="token punctuation">`</span></span> <span class="token keyword">TEXT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>ban<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">INDEX</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Source_Request1_idx<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span> <span class="token keyword">ASC</span><span class="token punctuation">)</span> VISIBLE<span class="token punctuation">,</span>
+  <span class="token keyword">CONSTRAINT</span> <span class="token identifier"><span class="token punctuation">`</span>fk_Source_Request1<span class="token punctuation">`</span></span>
+    <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>Request_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">REFERENCES</span> <span class="token identifier"><span class="token punctuation">`</span>mydb<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>Request<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span>
+    <span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">NO</span> <span class="token keyword">ACTION</span><span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">SET</span> SQL_MODE<span class="token operator">=</span><span class="token variable">@OLD_SQL_MODE</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> FOREIGN_KEY_CHECKS<span class="token operator">=</span><span class="token variable">@OLD_FOREIGN_KEY_CHECKS</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> UNIQUE_CHECKS<span class="token operator">=</span><span class="token variable">@OLD_UNIQUE_CHECKS</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>RESTfull сервіс для управління даними</li></ul> <p><strong>main.py</strong></p> <div class="language-Python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> pymysql
+<span class="token keyword">from</span> app <span class="token keyword">import</span> app
+<span class="token keyword">from</span> config <span class="token keyword">import</span> mysql
+<span class="token keyword">from</span> flask <span class="token keyword">import</span> jsonify
+<span class="token keyword">from</span> flask <span class="token keyword">import</span> flash<span class="token punctuation">,</span> request
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/acs_rights'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'PUT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">acs_rights</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        _json <span class="token operator">=</span> request<span class="token punctuation">.</span>json
+        _id <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        _rights <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'rights'</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> _rights <span class="token keyword">and</span> _id <span class="token keyword">and</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'PUT'</span><span class="token punctuation">:</span>
+            conn <span class="token operator">=</span> mysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+            sqlQuery <span class="token operator">=</span> <span class="token string">&quot;UPDATE `user` SET rights = '{y}' WHERE `id` = '{x}'&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>y<span class="token operator">=</span>_rights<span class="token punctuation">,</span> x<span class="token operator">=</span>_id<span class="token punctuation">)</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sqlQuery<span class="token punctuation">)</span>
+            conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            respone <span class="token operator">=</span> jsonify<span class="token punctuation">(</span><span class="token string">'Changed successfully!'</span><span class="token punctuation">)</span>
+            respone<span class="token punctuation">.</span>status_code <span class="token operator">=</span> <span class="token number">200</span>
+            <span class="token keyword">return</span> respone
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> showMessage<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/srch_info'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">srch_info</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        _json <span class="token operator">=</span> request<span class="token punctuation">.</span>json
+        _id <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        conn <span class="token operator">=</span> mysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;SELECT title, discription, date FROM request WHERE id = {x}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token operator">=</span>_id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        empRows <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        respone <span class="token operator">=</span> jsonify<span class="token punctuation">(</span>empRows<span class="token punctuation">)</span>
+        respone<span class="token punctuation">.</span>status_code <span class="token operator">=</span> <span class="token number">200</span>
+        <span class="token keyword">return</span> respone
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/add_user'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">add_user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        _json <span class="token operator">=</span> request<span class="token punctuation">.</span>json
+        _id <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+        _name <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
+        _email <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'email'</span><span class="token punctuation">]</span>
+        _login <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'login'</span><span class="token punctuation">]</span>
+        _password <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span>
+        _rights <span class="token operator">=</span> _json<span class="token punctuation">[</span><span class="token string">'rights'</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> _name <span class="token keyword">and</span> _email <span class="token keyword">and</span> _login <span class="token keyword">and</span> _password <span class="token keyword">and</span> _rights <span class="token keyword">and</span> _id <span class="token keyword">and</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'POST'</span><span class="token punctuation">:</span>
+            conn <span class="token operator">=</span> mysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+            sqlQuery <span class="token operator">=</span> <span class="token string">&quot;INSERT INTO user(id, name, email, login, password, rights) VALUES(%s, %s, %s, %s, %s, %s)&quot;</span>
+            bindData <span class="token operator">=</span> <span class="token punctuation">(</span>_id<span class="token punctuation">,</span> _name<span class="token punctuation">,</span> _email<span class="token punctuation">,</span> _login<span class="token punctuation">,</span> _password<span class="token punctuation">,</span> _rights<span class="token punctuation">)</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sqlQuery<span class="token punctuation">,</span> bindData<span class="token punctuation">)</span>
+            conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            respone <span class="token operator">=</span> jsonify<span class="token punctuation">(</span><span class="token string">'Employee added successfully!'</span><span class="token punctuation">)</span>
+            respone<span class="token punctuation">.</span>status_code <span class="token operator">=</span> <span class="token number">200</span>
+            <span class="token keyword">return</span> respone
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> showMessage<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        conn <span class="token operator">=</span> mysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+        cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;SELECT id, name, email, login, password, rights FROM user&quot;</span><span class="token punctuation">)</span>
+        empRows <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        respone <span class="token operator">=</span> jsonify<span class="token punctuation">(</span>empRows<span class="token punctuation">)</span>
+        respone<span class="token punctuation">.</span>status_code <span class="token operator">=</span> <span class="token number">200</span>
+        <span class="token keyword">return</span> respone
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>errorhandler</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">showMessage</span><span class="token punctuation">(</span>error<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    message <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span>
+        <span class="token string">'message'</span><span class="token punctuation">:</span> <span class="token string">'Record not found: '</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    respone <span class="token operator">=</span> jsonify<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+    respone<span class="token punctuation">.</span>status_code <span class="token operator">=</span> <span class="token number">404</span>
+    <span class="token keyword">return</span> respone
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&quot;__main__&quot;</span><span class="token punctuation">:</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>config.py</strong></p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> app <span class="token keyword">import</span> app
+<span class="token keyword">from</span> flaskext<span class="token punctuation">.</span>mysql <span class="token keyword">import</span> MySQL
+
+mysql <span class="token operator">=</span> MySQL<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'MYSQL_DATABASE_USER'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'root'</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'MYSQL_DATABASE_PASSWORD'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'MYSQL_DATABASE_DB'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'mydb'</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'MYSQL_DATABASE_HOST'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'localhost'</span>
+mysql<span class="token punctuation">.</span>init_app<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+</code></pre></div><p><strong>app.py</strong></p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
+<span class="token keyword">from</span> flask_cors <span class="token keyword">import</span> CORS<span class="token punctuation">,</span> cross_origin
+
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+CORS<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Останнє оновлення:</span> <span class="time">5/25/2023, 1:18:29 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/edu_db_labs_gr2_io13/design/" class="prev">
+        Проектування інформаційного забезпечення
+      </a></span> <span class="next"><a href="/edu_db_labs_gr2_io13/test/">
+        Тестування працездатності системи
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/edu_db_labs_gr2_io13/assets/js/app.4dd42823.js" defer></script><script src="/edu_db_labs_gr2_io13/assets/js/2.23306c76.js" defer></script><script src="/edu_db_labs_gr2_io13/assets/js/23.8ffd82a9.js" defer></script>
+  </body>
+</html>
